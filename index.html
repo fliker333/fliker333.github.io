@@ -1,0 +1,667 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head>
+	<meta charset="UTF-8">
+	<!--Заголовок-->
+	<title>Демо Ремонт квартир Новый шаблон лендинга</title>
+	<!--Стили-->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/lip.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+     $(function() {
+      //form default text & phone masking
+      $(".deftext").focus(function(srcc){
+       if ($(this).val() == $(this)[0].title){
+        $(this).removeClass("grey");
+        $(this).val("");
+       }
+      });
+
+      $(".deftext").blur(function(){
+       if ($(this).val() == ""){
+        $(this).addClass("grey");
+        $(this).val($(this)[0].title);
+       }
+      });
+      $(".deftext").blur();    
+      
+	  function counter(){
+			var now = new Date();
+			
+			var finDate = new Date();//Достаем текущую дату
+			finDate.setDate(finDate.getDate()+2);//Увеличиваем текущую дату на 1 день
+			finDate.setHours(0);//Обнуляем часы
+			finDate.setMinutes(0);//ОБнуляем минуты
+			finDate.setSeconds(0);//ОБнуляем секунды
+
+			var totalRemains = (finDate.getTime() - now.getTime());
+			if (totalRemains > 1){
+			 var RemainsSec = (parseInt(totalRemains / 1000));
+			 var RemainsFullDays = (parseInt(RemainsSec/(24 * 60 * 60)));
+			  if (RemainsFullDays < 10){
+			  RemainsFullDays = "0" + RemainsFullDays
+			 };
+			 var secInLastDay = RemainsSec-RemainsFullDays * 24 * 3600;
+			 var RemainsFullHours = (parseInt(secInLastDay / 3600));
+			 if (RemainsFullHours < 10){
+			  RemainsFullHours = "0" + RemainsFullHours
+			 };
+			 var secInLastHour = secInLastDay - RemainsFullHours * 3600;
+			 var RemainsMinutes = (parseInt(secInLastHour / 60));
+			 if (RemainsMinutes < 10){
+			  RemainsMinutes = "0" + RemainsMinutes
+			 };
+			 var lastSec = secInLastHour - RemainsMinutes * 60;
+			 if (lastSec < 10){
+			  lastSec = "0" + lastSec
+			 };
+			 $(".days").html(RemainsFullDays);
+			 $(".hours").html(RemainsFullHours);
+			 $(" .minutes").html(RemainsMinutes);
+			 $(".seconds").html(lastSec);
+			}
+			else {
+			 //$(".counter").html("Время вышло.");
+			}
+		};
+		
+		setInterval(counter, 1000);		 
+			
+	
+      //default text reset & notempty check on form submit
+      $("form").submit(function() {
+       $(".deftext").each(function() {
+        if($(this).val() == this.title) {
+         $(this).val("");
+        }
+       });
+       var isFormValid = true;
+       $(this).find(".required").each(function(){
+        if ($.trim($(this).val()).length == 0){
+         $(this).parent().addClass("highlight");
+         isFormValid = false;
+         $(this).val($(this)[0].title);
+        } else {
+         $(this).parent().removeClass("highlight");
+        }
+       });
+       if (!isFormValid) alert("Заполните, пожалуйста, обязательные поля");
+       return isFormValid;
+      });
+	  
+	  
+     }); 
+
+    </script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script>
+		!window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+	</script>
+			<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.js"></script>
+	<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.js"></script>
+	<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.css" media="screen">
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("#various1").fancybox({
+			overlayColor: {
+                css: '#000'          
+            }
+			});
+			$("#various2").fancybox({
+			overlayColor: {
+                css: '#000'          
+            }
+			});	
+			$("#various3").fancybox({
+			overlayColor: {
+                css: '#000'          
+            }
+			});
+			$("#various4").fancybox({
+			overlayColor: {
+                css: '#000'          
+            }
+			});			
+		});
+	</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+j(document).ready( function() {
+    j('.subMenu').smint({
+    	'scrollSpeed' : 1000
+    });
+});
+</script>
+</head>
+	<body>
+<div id="wrapper" class="wrap">
+			<div class="header" style="position:relative">
+				<a href="index.html"><div class="logo left"></div></a><p style="position:absolute;bottom:10px;left:20px;font-size: 13px;">г. Москва, ул. Серетенка 22/1, оф. 23</p>
+				<div style="margin: 0 auto;width: 325px;">
+				<h1 class="centh1 left"><strong>Ремонт и отделка квартир и офисов</strong><br><span style="font-size:16px;font-weight:normal">в Москве и области</span></h1>
+				</div>
+				<div class="right-h right">
+					<h6>Позвоните нам!</h6>
+						<div style="padding: 20px 0 10px 20px;overflow: hidden;">
+							<img src="img/phone.png" class="ico left"><p class="left">+7 (962) 719-05-17</p>
+							</div>
+							<div class="clear"></div>
+						<div style="padding: 0px 0 10px 20px;overflow: hidden;">
+							<img src="img/phone.png" class="ico left"><p class="left">+7 (921) 942-51-28</p>
+							</div>
+							<div class="clear"></div>
+							<div style="padding: 0 0 10px 20px;overflow: hidden;">
+							<img src="img/phone.png" class="ico left"><p class="left">+7 (913) 034-66-06</p>
+						</div>
+						<div class="clear"></div>
+							<div style="padding: 0 0 10px 20px;overflow: hidden;">
+							<img src="img/mail.png" class="ico left"><p class="left" style="font-size: 13px;">info@prculture.ru</p>
+						</div>
+						<a href="#zvonok" id="various1" class="orange-min razm1">Закажите звонок</a>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div id="menu" class="subMenu">
+				<ul>
+					<li><a href="#" id="s1" class="subNavBtn">Акции</a></li>
+					<li><a href="#" id="s2" class="subNavBtn">Наши преимущества</a></li>
+					<li><a href="#" id="s3" class="subNavBtn">Проблемы и решения</a></li>
+					<li><a href="#" id="s4" class="subNavBtn">Почему мы?</a></li>
+					<li><a href="#" id="s5" class="subNavBtn">Схема работы</a></li>
+					<li><a href="#" id="s6" class="subNavBtn">Виды ремонтов</a></li>
+					<li><a href="#" id="s7" class="subNavBtn">Наши работы</a></li>
+					<li><a href="#" id="s8" class="subNavBtn">Отзывы</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+			<div class="slider">
+				<div class="section s1">
+				<div class="handy"></div>
+				<div class="action">
+					<h4>Внимание акция!</h4>
+					<img src="img/plazma.png" width="190px" style="padding:6px">
+					<p style="font-weight: bolder;">При заказе ремонта у нас, дарим <br> телевизор с диагональю 42 см !  </p>
+					<!--<p style="font-size:12px;margin-top: 15px;">До конца акции осталось:</p>
+							<div class='item2'>
+								<ul>
+									<li>
+										<h2 class="days">10</h2>
+										<p>Дней</p>
+										<img src="img/pic1.png">
+									</li>
+									<li>
+										<h2 class="hours">12</h2>
+										<p>Часов</p>
+										<img src="img/pic1.png">
+									</li>
+									<li>
+										<h2 class="minutes">54</h2>
+										<p>Минут</p>
+										<img src="img/pic1.png">
+									</li>
+									<li>
+										<h2 class="seconds">02</h2>
+										<p>Секунд</p>
+									</li>
+								</ul>
+							</div>-->
+					<a href="#zvonok3" id="various3" class="orange-min size1">Оставить заявку</a>
+				</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="prems section s2" style="margin-bottom: 15px;">
+			<h3 class="title">Наши преимущества</h3>
+				<div style="margin: 10px auto;overflow: hidden;width: 704px;">
+				<div class="prem left">
+					<img src="img/prem1.png" style="margin-bottom: 15px;" alt="Работаем по Краснодарскому краю">
+					<p>Работаем по Москве и области</p>
+				</div>
+				<div class="prem left">
+					<img src="img/prem2.png" style="margin-bottom: 15px;" alt="Работаем по безналичному расчету">
+					<p>Работаем по безналичному расчету</p>
+				</div>	
+				<div class="prem left" style="margin-right:0">
+					<img src="img/prem3.png" style="margin-bottom: 15px;" alt="Быстро и недорого">
+					<p>Быстро и недорого</p>
+				</div>	
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="answer section s3">
+				<h3 class="title">Частые проблемы клиентов</h3>
+				<div style="padding:0 20px 0 20px;overflow:hidden">
+					<div class="left" style="width:470px;">
+						<h4 class="hansw">Ваши проблемы</h4>
+						<ul>
+							<li><div class="xx1 left" style="min-height: 44px;"></div><p class="left">Не классифицированные работники.</p></li>
+							<li><div class="xx1 left"></div><p class="left">Боязнь того что Вас обманут</p></li>
+							<li><div class="xx1 left"></div><p class="left">Нет возможности оплатить по карте.</p></li>
+							<li><div class="xx1 left" style="min-height: 44px;"></div><p class="left">Не знаете какой ремонт вам нужен.</p></li>
+							<li><div class="xx1 left"></div><p class="left"> Нет денег на ремонт.</p></li>
+						</ul>
+					</div>
+					<div class="right" style="width:470px;">
+						<h4 class="hansw2">Как мы их решаем</h4>
+						<ul>
+							<li><div class="xx2 left"></div><p class="left"> У нам работают только классифицированные сотрудники с большим опытом работы.</p></li>
+							<li><div class="xx2 left"></div><p class="left"> Мы работаем по договору</p></li>
+							<li><div class="xx2 left"></div><p class="left">Мы принимаем все виды оплаты.</p></li>
+							<li><div class="xx2 left"></div><p class="left">Наш дизайнер поможет Вам в выборе правильного ремонта.</p></li>
+							<li><div class="xx2 left"></div><p class="left">Мы работаем в кредит.</p></li>
+						</ul>						
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="prems section s4">
+			<h3 class="title">Почему мы?</h3>
+				<div style="margin: 10px auto;overflow: hidden;width: 704px;">
+				<div class="prem left">
+					<img src="img/prem4.png" style="margin-bottom: 15px;" alt="Работаем по Краснодарскому краю">
+					<p>Выезд по области</p>
+				</div>
+				<div class="prem left">
+					<img src="img/prem5.png" style="margin-bottom: 15px;" alt="Работаем по безналичному расчету">
+					<p>Качественная отделка</p>
+				</div>	
+				<div class="prem left" style="margin-right:0">
+					<img src="img/prem6.png" style="margin-bottom: 15px;" alt="Быстро и недорого">
+					<p>Высококвалифицированные <br>специалисты </p>
+				</div>	
+				</div>
+			</div>
+			<div class="clear"></div>			
+			<div class="formbox">
+					<h4>Есть вопросы?<br>
+					<span style="font-size:22px;font-weight:normal">Получите бесплатную консультацию!</span>
+					</h4>
+				<div class="form forma1">
+						<form class="bblue" action="zakaz.php" method="POST">
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;float:left">
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;float:left;margin: 0 25px 0 25px;">
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form3">
+							<button type="submit" class="orange-min" style="float:left;height: 36px;width: 250px;">Получить консультацию!</button>
+						</form>
+						<div class="clear"></div>
+						<p><span style="color:#279cc4">Мы вам перезвоним и ответим на все интересующие вопросы.</span> Или позвоните нам сами +7 (962) 719-05-17.</p>
+				</div>
+				</div>
+				<div class="clear"></div>
+				<div class="schemebox section s5">
+					<h3 class="title">Схема работы с нами</h3>
+					<p class="left" style="position: absolute;top: 80px;left:97px;font-size: 14px;">1. Оставляете заявку на сайте</p>
+					<p class="left" style="position: absolute;top: 80px;left:387px;font-size: 14px;">2. Выезжаем бесплатно на замер</p>
+					<p class="left" style="position: absolute;top: 80px;right:130px;font-size: 14px;">3. Заключаем договор</p>
+					<p class="left" style="position: absolute;top: 310px;left: 126px;font-size: 14px;">4. Выполняем работу</p>
+					<p class="left" style="position: absolute;top: 310px;left: 412px;font-size: 14px;">5. Сдаем готовый ремонт</p>
+					<p class="left" style="position: absolute;top: 310px;right: 103px;font-size: 14px;">6. Дарим приятный подарок</p>
+				</div>
+				<div class="clear"></div>
+				<div class="scheme">
+					<a href="#zvonok4" id="various4" class="orange-min">Оставить заявку</a>
+					<div class="arrow"></div>
+				</div>
+				<div class="clear"></div>
+				<div class="vids section s6">
+					<h3 class="title">Виды ремонтов и их цены</h3>
+					<p style="text-align:center">Стоимость ремонта в новостройке и коттедже за м2</p>
+					<div style="margin: 10px 0 0 40px;">
+						<div class="vid servi gr left" style="height: 260px; margin-left: -20px;"><img src="img/img1.jpg" border="0" width="225px">
+							<h5>Ремонт Стандарт</h5>
+							<p>От 2000 руб. за м<sup>2</sup></p>
+							<div class="readmore" style="width: 112px; margin: 0 auto;"><a href="#zvonok5" id="various2" class="orange-min">Подробнее</a></div>
+						</div>
+						<div class="vid servi or left" style="height: 260px;"><img src="img/img2.jpg" border="0" width="225px">
+							<h5>Ремонт Комфорт</h5>
+							<p>От 4000 руб за м<sup>2</sup></p>
+							<div class="readmore" style="width: 112px; margin: 0 auto;"><a href="#zvonok5" id="various2" class="orange-min">Подробнее</a></div>
+						</div>		
+						<div class="vid servi bl left" style="height: 260px;"><img src="img/img3.jpg" border="0" width="225px">
+							<h5>Ремонт Комфорт +</h5>
+							<p>От 6000 руб за м<sup>2</sup></p>
+							<div class="readmore" style="width: 112px; margin: 0 auto;"><a href="#zvonok5" id="various2" class="orange-min">Подробнее</a></div>
+						</div>	
+						<div class="vid servi pr left" style="height: 260px; margin-right: -20px;"><img src="img/img4.jpg" border="0" width="225px">
+							<h5>Ремонт Премиум</h5>
+							<p>От 8500 руб за м<sup>2</sup></p>
+							<div class="readmore" style="width: 112px; margin: 0 auto;"><a href="#zvonok5" id="various2" class="orange-min">Подробнее</a></div>
+						</div>								
+						</div>												
+				</div>
+				<div class="clear"></div>
+							<div class="formbox">
+					<h4>Сколько стоит ваш ремонт?<br>
+					<span style="font-size:22px;font-weight:normal">Узнайте точную стоимость вашего ремонта.!</span>
+					</h4>
+				<div class="form forma1">
+						<form class="bblue" action="zakaz.php" method="POST">
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;float:left">
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;float:left;margin: 0 25px 0 25px;">
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form5">
+							<button type="submit" class="orange-min" style="float:left;height: 36px;width: 250px;">Узнать свою стоимость</button>
+						</form>
+						<div class="clear"></div>
+						<p><span style="color:#279cc4">Мы вам перезвоним и ответим на все интересующие вопросы.</span> Или позвоните нам сами +7 (962) 719-05-17.</p>
+				</div>
+				</div>
+				<div class="clear"></div>
+				<div class="works section s7">
+					<h3 class="title">Посмотрите наши работы</h3>
+					<div class="pfl" style="margin: 10px 0 0 0px;">
+						<div class="portbox">
+						<div style="position: relative;"><img src="img/pfl1.jpg" border="0">
+						<div class="podder">
+						<p>Комфорт в новостройке</p>
+						</div>
+						</div>
+						<p class="korot">Перед нами встала задача — ремонт комфорт-класса двухкомнатной квартиры в новостройке</p>
+						<a class="orange-min" href="/">Подробнее...</a></div>
+						<div class="portbox">
+						<div style="position: relative;"><img src="img/pfl2.jpg" border="0">
+						<div class="podder">
+						<p>Новая кухня</p>
+						</div>
+						</div>
+						<p class="korot">Нет определения, чтоб описать новую кухню. На нее можно только любоваться и изучать детали...</p>
+						<a class="orange-min" href="/">Подробнее...</a></div>
+						<div class="portbox">
+						<div style="position: relative;"><img src="img/pfl3.jpg" border="0">
+						<div class="podder">
+						<p>Коридор, ванная</p>
+						</div>
+						</div>
+						<p class="korot">Перед нами стояла задача отремонтировать коридор-прихожую, а также ванную и санузел...</p>
+						<a class="orange-min" href="/">Подробнее...</a></div>
+						<div class="portbox">
+						<div style="position: relative;"><img src="img/pfl4.jpg" border="0">
+						<div class="podder">
+						<p>Ремонт гостиной, детской</p>
+						</div>
+						</div>
+						<p class="korot">Мы делали ремонт гостиной, а также детской комнаты. Гостиная невероятно большая и просторная...</p>
+						<a class="orange-min" href="/">Подробнее...</a></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="rews section s8">
+					<h3 class="title">Отзывы наших клиентов</h3>
+						<div style="padding:10px 20px 20px 20px;overflow:hidden">
+						<div class="rew left rewl">
+							<img src="img/rew1.jpg" class="left">
+							<h4>Воротникова Оксана</h4>
+							<p>Спасибо огромное prculture за прекрасный ремонт. Получилось лучше чем планировали. Если хотите быть довольны как я - рекомендую этих мастеров.</p>
+						</div>
+						<div class="rew left">
+							<img src="img/rew2.jpg" class="left">
+							<h4>Михальцевич Андей и Евгения</h4>
+							<p>Для начала хотим поблагодарить prculture за хорошую и своевременную работу. Это действительно лучшие мастера! Делали ремонт к рождению сына, остались оче довольны. =)) </p>
+						</div>	
+						<div class="clear"></div>
+						<div class="rew left rewl">
+							<img src="img/rew3.jpg" class="left">
+							<h4>Малясов Антон</h4>
+							<p>Ребята работают ювелирно, все недочеты устраняют без вопросов, видно, что у бригадира обширный опыт в ремонтах. Все успели и квартира радует меня качеством сделанной работы!</p>
+						</div>
+						<div class="rew left">
+							<img src="img/rew4.jpg" class="left">
+							<h4>Александр и Ольга Викуловы</h4>
+							<p>Нашли бригаду по интернету, на этом сайте. Ребята сами всё закупали, в квартире всегда было чистенько. Все сделали на совесть!!! Мы очень довольны нашим ремонтом и всем рекомендуем мастеров!</p>
+						</div>							
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="footer" style="position:relative">
+												<div style="position: absolute;
+top: 75px;
+right: 225px;">
+<a href="#" class="banerfancy" target="_blank" style="
+width: 110px;
+height: 31px;
+background-image: url('http://fancycompany.ru/banf.png');
+display: none;
+background-repeat: no-repeat;margin-bottom:5px" title="Создание сайтов, заказать сайт, лендинг, интернет магазин"></a>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+var yaParams = {/*Здесь параметры визита*/};
+</script>
+
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter25811231 = new Ya.Metrika({id:25811231,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,params:window.yaParams||{ }});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/25811231" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</div>		
+				<a href="index.html" class="logo2"></a>
+				<h1 class="centh2">Получите подробную информацию<br>о наших услугах</h1>
+				<div class="clear"></div>
+				<a href="#zvonok6" id="various6" class="orange-min razm1 poz1">Получить</a>
+				<div class="f-right right" style="font-size: 15px;margin-right: 14px;">
+					<h6>Позвоните нам!</h6>
+					
+						<div style="padding: 20px 0 10px 0px;overflow: hidden;">
+							<img src="img/phone.png" class="ico left"><p class="left">+7 (962) 719-05-17</p>
+							</div>
+							<div class="clear"></div>
+							<div style="padding: 0 0 10px 0px;overflow: hidden;">
+							<img src="img/phone.png" class="ico left"><p class="left">+7 (921) 942-51-28</p>
+						</div>
+						<a href="#zvonok2" id="various2" class="orange-min razm1">Закажите звонок</a>
+				</div>
+				<div class="clear"></div>
+				<p class="ftext">© Freenteza 2016 - Ремонт и отделка квартир и офисов в Москве и области <a href="/" title="">Фринтеза</a></p>			
+				</div>
+			</div>
+				<div style="display: none;">
+					<div id="zvonok" style="width:260px;height:250px;overflow:auto;">
+						<form id="forma" class="bblue" action="zakaz.php" method="POST">
+							<h4>Закажите звонок</h4>
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;margin: 15px 0 15px 0;"><br>
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;margin: 0px 0 15px 0;"><br>
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form1">
+							<div class="zash left"></div>
+							<p class="left size2">Ваши данные не будут переданы третьим лицам.</p>
+							<div class="clear" style="margin-bottom: 10px;"></div>
+							<button type="submit" class="orange-min" style="height: 36px;width: 250px;margin: 0 auto;">Заказать звонок</button>
+						</form>
+					</div>
+				</div>
+				<div style="display: none;">
+					<div id="zvonok2" style="width:260px;height:250px;overflow:auto;">
+						<form id="forma" action="zakaz.php" method="POST" class="bblue">
+							<h4>Закажите звонок</h4>
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;margin: 15px 0 15px 0;"><br>
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;margin: 0px 0 15px 0;"><br>
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form2">
+							<div class="zash left"></div>
+							<p class="left size2">Ваши данные не будут переданы третьим лицам.</p>
+							<div class="clear" style="margin-bottom: 10px;"></div>
+							<button type="submit" class="orange-min" style="height: 36px;width: 250px;margin: 0 auto;">Заказать звонок</button>
+						</form>
+					</div>
+				</div>		
+				<div style="display: none;">
+					<div id="zvonok3" style="width:260px;height:250px;overflow:auto;">
+						<form id="forma" class="bblue" action="zakaz.php" method="POST">
+							<h4>Оставьте заявку</h4>
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;margin: 15px 0 15px 0;"><br>
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;margin: 0px 0 15px 0;"><br>
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form3">
+							<div class="zash left"></div>
+							<p class="left size2">Ваши данные не будут переданы третьим лицам.</p>
+							<div class="clear" style="margin-bottom: 10px;"></div>
+							<button type="submit" class="orange-min" style="height: 36px;width: 250px;margin: 0 auto;">Оставить заявку</button>
+						</form>
+					</div>
+				</div>		
+				<div style="display: none;">
+					<div id="zvonok4" style="width:260px;height:250px;overflow:auto;">
+						<form id="forma" class="bblue" action="zakaz.php" method="POST">
+							<h4>Оставьте заявку</h4>
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;margin: 15px 0 15px 0;"><br>
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;margin: 0px 0 15px 0;"><br>
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form4">
+							<div class="zash left"></div>
+							<p class="left size2">Ваши данные не будут переданы третьим лицам.</p>
+							<div class="clear" style="margin-bottom: 10px;"></div>
+							<button type="submit" class="orange-min" style="height: 36px;width: 250px;margin: 0 auto;">Оставить заявку</button>
+						</form>
+					</div>
+				</div>
+				<div style="display: none;">
+					<div id="zvonok5" style="width:260px;height:250px;overflow:auto;">
+						<form id="forma" class="bblue" action="zakaz.php" method="POST">
+							<h4>Оставьте заявку</h4>
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;margin: 15px 0 15px 0;"><br>
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;margin: 0px 0 15px 0;"><br>
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form4">
+							<div class="zash left"></div>
+							<p class="left size2">Ваши данные не будут переданы третьим лицам.</p>
+							<div class="clear" style="margin-bottom: 10px;"></div>
+							<button type="submit" class="orange-min" style="height: 36px;width: 250px;margin: 0 auto;">Оставить заявку</button>
+						</form>
+					</div>
+				</div>
+				<div style="display: none;">
+					<div id="zvonok6" style="width:260px;height:250px;overflow:auto;">
+						<form id="forma" class="bblue" action="zakaz.php" method="POST">
+							<h4>Оставьте заявку</h4>
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;margin: 15px 0 15px 0;"><br>
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;margin: 0px 0 15px 0;"><br>
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form6">
+							<div class="zash left"></div>
+							<p class="left size2">Ваши данные не будут переданы третьим лицам.</p>
+							<div class="clear" style="margin-bottom: 10px;"></div>
+							<button type="submit" class="orange-min" style="height: 36px;width: 250px;margin: 0 auto;">Оставить заявку</button>
+						</form>
+					</div>
+				</div>
+				<div style="display: none;">
+					<div id="zvonok7" style="width:260px;height:250px;overflow:auto;">
+						<form id="forma" class="bblue" action="zakaz.php" method="POST">
+							<h4>Оставьте заявку</h4>
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;margin: 15px 0 15px 0;"><br>
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;margin: 0px 0 15px 0;"><br>
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form7">
+							<div class="zash left"></div>
+							<p class="left size2">Ваши данные не будут переданы третьим лицам.</p>
+							<div class="clear" style="margin-bottom: 10px;"></div>
+							<button type="submit" class="orange-min" style="height: 36px;width: 250px;margin: 0 auto;">Оставить заявку</button>
+						</form>
+					</div>
+					<div style="display: none;">
+					<div id="zvonok8" style="width:260px;height:250px;overflow:auto;">
+						<form id="forma" class="bblue" action="zakaz.php" method="POST">
+							<h4>Оставьте заявку</h4>
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;margin: 15px 0 15px 0;"><br>
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;margin: 0px 0 15px 0;"><br>
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form8">
+							<div class="zash left"></div>
+							<p class="left size2">Ваши данные не будут переданы третьим лицам.</p>
+							<div class="clear" style="margin-bottom: 10px;"></div>
+							<button type="submit" class="orange-min" style="height: 36px;width: 250px;margin: 0 auto;">Оставить заявку</button>
+						</form>
+					</div>
+				</div>
+				<div style="display: none;">
+					<div id="zvonok9" style="width:260px;height:250px;overflow:auto;">
+						<form id="forma" class="bblue" action="zakaz.php" method="POST">
+							<h4>Оставьте заявку</h4>
+							<input type="text" name="name" class="required" placeholder="Ваше имя..." style="border: solid 1px #326E9D;margin: 15px 0 15px 0;"><br>
+							<input type="text" name="phone" class="required" placeholder="Номер телефона..." style="border: solid 1px #326E9D;margin: 0px 0 15px 0;"><br>
+							<input type="text" name="bot" style="display:none;">
+							<input type="hidden" name="what" value="form9">
+							<div class="zash left"></div>
+							<p class="left size2">Ваши данные не будут переданы третьим лицам.</p>
+							<div class="clear" style="margin-bottom: 10px;"></div>
+							<button type="submit" class="orange-min" style="height: 36px;width: 250px;margin: 0 auto;">Оставить заявку</button>
+						</form>
+					</div>
+				</div>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter28238071 = new Ya.Metrika({id:28238071,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    trackHash:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/28238071" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter --> 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59754249-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='//www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t14.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров за 24"+
+" часа, посетителей за 24 часа и за сегодня' "+
+"border='0' width='88' height='31'><\/a>")
+//--></script><!--/LiveInternet--> 
+	</body>
+</html>
